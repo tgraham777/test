@@ -2,15 +2,15 @@ require "minitest"
 require "minitest/autorun"
 require_relative "chisel.rb"
 
-class CreditCheckTest < Minitest::Test
-  def test_it_exists
-    parser = Chisel.new
-  end
+class ChiselTest < Minitest::Test
+  #def test_it_exists
+  #  parser = Chisel.new
+  #end
 
-  def test_parse
+  def test_emphasis_1
     chisel = Chisel.new
-    parser = chisel.parse("*hello*")
-    assert_equal "<em>hello</em>", parser
+    parser = chisel.parse_emphasis("*hello* *my* *friend*")
+    assert_equal "<em>hello</em> <em>my</em> <em>friend</em>", parser # my <em>friend</em>", parser
   end
 
 end
